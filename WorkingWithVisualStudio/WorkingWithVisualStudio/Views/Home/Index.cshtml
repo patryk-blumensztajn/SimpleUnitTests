@@ -1,0 +1,33 @@
+﻿@model IEnumerable<WorkingWithVisualStudio.Models.Product>
+@{ Layout = null;}
+
+<!DOCTYPE html>
+<html>
+<head>
+    <meta name="viewport" content="width=device-width" />
+    <title>Praca z Visual Studio</title>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css" integrity="sha384-MCw98/SFnGE8fJT3GXwEOngsV7Zt27NXFoaoApmYm81iuXoPkFOJwJ8ERdknLPMO" crossorigin="anonymous">
+    <script src="~/js/bundle.min.js"></script>
+</head>
+<body class="p-1">
+    <h3 class="text-center">Produkty</h3>
+
+    <table class="table table-bordered table-striped">
+        <thead>
+            <tr><td>Produkt</td><td>Cena</td></tr>
+        </thead>
+        <tbody>
+            @foreach (var p in Model)
+            {
+                <tr>
+                    <td>@p.Name</td>
+                    <td>@($"{p.Price:C2}")</td>
+                </tr>
+            }
+        </tbody>
+    </table>
+    <div class="text-center">
+        <a class="btn btn-primary" asp-action="AddProduct">Dodaj nowy produkt</a>
+    </div>
+</body>
+</html>
